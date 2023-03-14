@@ -1,0 +1,22 @@
+workspace.ChildAdded:Connect(function(model)
+	task.wait(5)
+	if model:FindFirstChildWhichIsA("Humanoid") then
+		if game.Players:FindFirstChild(model.Name) then
+			if not model:FindFirstChild("WH_Highlight") then
+				local high = Instance.new("Highlight", model)
+				high.Name = "WH_Highlight"
+				high.OutlineColor = Color3.fromRGB(0, 255, 8)
+				high.FillColor = Color3.fromRGB(0, 255, 8)
+			end
+		end
+	end
+end)
+
+for num,plr in pairs(game:GetService("Players"):GetPlayers()) do
+	if not plr.Character:FindFirstChild("WH_Highlight") then
+		local high = Instance.new("Highlight", plr.Character)
+		high.Name = "WH_Highlight"
+		high.OutlineColor = Color3.fromRGB(0, 255, 8)
+		high.FillColor = Color3.fromRGB(0, 255, 8)
+	end
+end
