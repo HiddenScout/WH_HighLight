@@ -1,3 +1,5 @@
+game.StarterGui:SetCore("SendNotification", {Title = "WH_HighLight",Text = "WH_HighLight is enabled!", Icon = "http://www.roblox.com/asset/?id=642982718", Button1 = "Okay"})
+
 workspace.ChildAdded:Connect(function(model)
 	task.wait(5)
 	if model:FindFirstChildWhichIsA("Humanoid") then
@@ -12,7 +14,7 @@ workspace.ChildAdded:Connect(function(model)
 	end
 end)
 
-for num,plr in pairs(game:GetService("Players"):GetPlayers()) do
+for num,plr in pairs(game.Players:GetPlayers()) do
 	if not plr.Character:FindFirstChild("WH_Highlight") then
 		local high = Instance.new("Highlight", plr.Character)
 		high.Name = "WH_Highlight"
@@ -20,3 +22,16 @@ for num,plr in pairs(game:GetService("Players"):GetPlayers()) do
 		high.FillColor = Color3.fromRGB(0, 255, 8)
 	end
 end
+
+while wait(0.01) do
+	for num,plr in pairs(game.Players:GetPlayers()) do
+		if game.Players.LocalPlayer.Name ~= plr.Name then
+			if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).magnitude <= 0 then
+				game.StarterGui:SetCore("SendNotification", {Title = plr.DisplayName .. " is close to you!",Text = plr.DisplayName .. " is" .. (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).magnitude .. " studs from you!", Icon = "http://www.roblox.com/asset/?id=9581016780", Duration = "1", Button1 = "Okay"})
+				task.wait(1)
+			end
+		end
+	end
+end
+
+
