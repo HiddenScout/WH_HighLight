@@ -27,7 +27,7 @@ while wait(0.01) do
 	for num,plr in pairs(game.Players:GetPlayers()) do
 		if game.Players.LocalPlayer.Name ~= plr.Name then
 			if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).magnitude <= 100 then
-				game.StarterGui:SetCore("SendNotification", {Title = plr.DisplayName .. " is close to you!",Text = plr.DisplayName .. " is" .. (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).magnitude .. " studs from you!", Icon = "http://www.roblox.com/asset/?id=9581016780", Duration = 1, Button1 = "Okay"})
+				game.StarterGui:SetCore("SendNotification", {Title = plr.DisplayName .. " is close to you!",Text = plr.DisplayName .. " is" .. (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).magnitude .. " studs from you!", Icon = "http://www.roblox.com/asset/?id=9581016780", Duration = 0.5, Button1 = "Okay"})
 				task.wait(1)
 			end
 		end
